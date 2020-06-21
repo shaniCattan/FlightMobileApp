@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FlightMobileApp</string>
+    <string name="welcome">FLIGHT MOBILE APP</string>
+    <string name="connect">Connect</string>
+</resources>
