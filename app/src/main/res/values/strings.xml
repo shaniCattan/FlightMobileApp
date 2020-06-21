@@ -3,4 +3,6 @@
     <string name="welcome">FLIGHT MOBILE APP</string>
     <string name="connect">Connect</string>
     <string name="type_url">Type URL</string>
+    <string name="_0">0</string>
+    <string name="no_server_was_updated">No server was updated</string>
 </resources>
