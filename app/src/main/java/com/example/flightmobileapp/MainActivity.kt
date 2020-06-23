@@ -18,9 +18,10 @@ class MainActivity : AppCompatActivity() {
     fun connectClick(view:View){
         val intent = Intent(this, Joystick::class.java)
         startActivity(intent)
-    }
 
     }
+
+}
 
 
 

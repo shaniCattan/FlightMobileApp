@@ -82,7 +82,8 @@
         app:JV_backgroundColor="#1C6087"
         app:JV_borderColor="#BADFF3"
         app:JV_borderWidth="8dp"
-        app:JV_buttonColor="#BADFF3" />
+        app:JV_buttonColor="#BADFF3"
+        />
 
     <SeekBar
         android:id="@+id/rudderSeekBar"
