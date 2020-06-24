@@ -9,7 +9,11 @@ import android.widget.SeekBar
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.google.gson.GsonBuilder
 import io.github.controlwear.virtual.joystick.android.JoystickView
+import okhttp3.MediaType
+import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 import kotlin.math.sin
@@ -20,7 +24,6 @@ class Joystick : AppCompatActivity() {
     private var lastAileron:Double = 0.0
     private var lastThrottle:Double = 0.0
     private var lastRudder:Double = 0.0
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.joystick)
@@ -50,13 +53,11 @@ class Joystick : AppCompatActivity() {
 
 
 
-        @RequiresApi(Build.VERSION_CODES.O)
     private fun setSeekBarProgress(){
         val throttleSB = findViewById<SeekBar>(R.id.throttleSeekBar)
         throttleSB.max = 10
         val rudderSB = findViewById<SeekBar>(R.id.rudderSeekBar)
         rudderSB.max = 10
-        rudderSB.min = -10
         val throttleText = findViewById<TextView>(R.id.thrText)
         val rudderText = findViewById<TextView>(R.id.rudText)
         throttleSB?.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
@@ -96,20 +97,29 @@ class Joystick : AppCompatActivity() {
             }
         })
     }
-
+   // findViewById<EditText>(R.id.url).text.toString()
     private fun postNewCommand(elevator:Double, aileron:Double, throttle:Double, rudder:Double){
+
+       val gson = GsonBuilder()
+           .setLenient()
+           .create()
+
         val retrofit = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(findViewById<EditText>(R.id.url).text.toString())
+            .addConverterFactory(GsonConverterFactory.create(gson))
+            .baseUrl("https://localhost:5001")
             .build()
         val api = retrofit.create(Api::class.java)
-       val myPost: Call<Command> =  api.postControl(Command(aileron,rudder,throttle,elevator))
-        myPost.enqueue(object : Callback<Command>{
-            override fun onFailure(call: Call<Command>, t: Throwable) {
-                Log.e("ERROR", t.message.toString())
+       val jsonToSend: String = "{\"aileron\": $aileron,\n \"rudder\": $rudder, \n " +
+               "\"elevator\": $elevator, \n \"throttle\": $throttle\n}"
+       val requestBody: RequestBody =
+           RequestBody.create(MediaType.parse("application/json"), jsonToSend)
+       val myPost =  api.postControl(requestBody)
+        myPost.enqueue(object : Callback<ResponseBody>{
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                Log.e("ERROR Joystick", t.message.toString())
             }
 
-            override fun onResponse(call: Call<Command>, response: Response<Command>) {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 TODO("Not yet implemented")
             }
 
