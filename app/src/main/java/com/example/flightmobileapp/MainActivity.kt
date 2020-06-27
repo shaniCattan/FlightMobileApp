@@ -1,5 +1,4 @@
 package com.example.flightmobileapp
-
 import Api
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -27,30 +26,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val gson = GsonBuilder()
-                    .setLenient()
-                    .create()
-                    val retrofit = Retrofit.Builder()
-                        .baseUrl("https://10.0.2.2:60817")
-                        .addConverterFactory(GsonConverterFactory.create(gson))
-                        .build()
-                    val api = retrofit.create(Api::class.java)
-                    val body = api.getImg().enqueue(object : Callback<ResponseBody> {
-                        override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
-                            println("good!")
-                            val I = response.body()?.byteStream()
-                            val B = BitmapFactory.decodeStream(I)
-                            runOnUiThread {
-                                img.setImageBitmap(B)
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                Log.e("ERROR", t.message.toString())
-            }
-        }
-        )  }
-
+    }
 
     fun connectClick(view: View) {
         val intent = Intent(this, Joystick::class.java)

@@ -15,11 +15,12 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="191dp"
-        android:layout_marginRight="191dp"
-        android:layout_marginBottom="117dp"
+        android:layout_marginEnd="241dp"
+        android:layout_marginRight="241dp"
+        android:layout_marginBottom="179dp"
+        android:rotation="270"
         android:text="throttle"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="italic" />
 
     <TextView
@@ -30,12 +31,11 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="84dp"
-        android:layout_marginRight="84dp"
-        android:layout_marginBottom="199dp"
-        android:rotation="270"
+        android:layout_marginEnd="175dp"
+        android:layout_marginRight="175dp"
+        android:layout_marginBottom="91dp"
         android:text="rudder"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="italic" />
 
     <TextView
@@ -46,12 +46,11 @@
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="308dp"
-        android:layout_marginRight="308dp"
-        android:layout_marginBottom="211dp"
-        android:rotation="270"
+        android:layout_marginEnd="105dp"
+        android:layout_marginRight="105dp"
+        android:layout_marginBottom="342dp"
         android:text="aileron"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="italic" />
 
     <TextView
@@ -61,69 +60,73 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="93dp"
-        android:layout_marginRight="93dp"
-        android:layout_marginBottom="296dp"
+        android:layout_marginEnd="-65dp"
+        android:layout_marginRight="-65dp"
+        android:layout_marginBottom="187dp"
+        android:rotation="-270"
         android:text="elevator"
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:textStyle="italic" />
 
     <io.github.controlwear.virtual.joystick.android.JoystickView
         android:id="@+id/joystickView"
-        android:layout_width="220dp"
-        android:layout_height="400dp"
+        android:layout_width="205dp"
+        android:layout_height="235dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="116dp"
-        android:layout_marginRight="116dp"
-        android:layout_marginBottom="117dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="134dp"
         app:JV_backgroundColor="#1C6087"
         app:JV_borderColor="#BADFF3"
         app:JV_borderWidth="8dp"
-        app:JV_buttonColor="#BADFF3"
-        />
+        app:JV_buttonColor="#BADFF3" />
 
     <SeekBar
+
         android:id="@+id/rudderSeekBar"
-        android:layout_width="155dp"
-        android:layout_height="349dp"
+        android:layout_width="175dp"
+        android:layout_height="61dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-24dp"
-        android:layout_marginRight="-24dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginRight="98dp"
+        android:layout_marginBottom="30dp"
+        android:maxHeight="25dp"
+        android:minHeight="10dp"
+        android:progressDrawable="@drawable/seek_bar" />
+
+    <SeekBar
+        android:id="@+id/throttleSeekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="410dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginEnd="314dp"
+        android:layout_marginRight="314dp"
+        android:layout_marginBottom="0dp"
         android:maxHeight="25dp"
         android:minHeight="10dp"
         android:progressDrawable="@drawable/seek_bar"
         android:rotation="270" />
 
-    <SeekBar
-        android:id="@+id/throttleSeekBar"
-        android:layout_width="182dp"
-        android:layout_height="36dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="135dp"
-        android:layout_marginRight="135dp"
-        android:layout_marginBottom="50dp"
-        android:maxHeight="25dp"
-        android:minHeight="10dp"
-        android:progressDrawable="@drawable/seek_bar" />
-
     <ImageView
         android:id="@+id/server_screenshot"
-        android:layout_width="307dp"
-        android:layout_height="182dp"
+        android:layout_width="367dp"
+        android:layout_height="200dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="58dp"
-        android:layout_marginRight="58dp"
-        android:layout_marginBottom="393dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
+        android:layout_marginBottom="391dp"
         android:background="#000000" />
 
     <TextView
@@ -133,11 +136,12 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="217dp"
-        android:layout_marginRight="217dp"
-        android:layout_marginBottom="87dp"
+        android:layout_marginEnd="276dp"
+        android:layout_marginRight="276dp"
+        android:layout_marginBottom="283dp"
+        android:rotation="270"
         android:text="@string/_0"
-        android:textSize="20dp" />
+        android:textSize="30dp" />
 
     <TextView
         android:id="@+id/rudText"
@@ -146,11 +150,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="81dp"
-        android:layout_marginRight="81dp"
-        android:layout_marginBottom="200dp"
-        android:rotation="270"
+        android:layout_marginEnd="93dp"
+        android:layout_marginRight="93dp"
+        android:layout_marginBottom="87dp"
         android:text="@string/_0"
-        android:textSize="20dp" />
+        android:textSize="30sp" />
 
 </RelativeLayout>
